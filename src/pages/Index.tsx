@@ -189,7 +189,7 @@ const Index = () => {
               className="w-full max-w-md p-4 rounded-lg shadow-md bg-white/80 dark:bg-black/80"
             >
               <p className="text-center lg:text-left">
-                <span className="text-tech font-bold">We blend</span> {' '}
+                <span className="text-tech font-bold">I try to blend</span> {' '}
                 <span className="text-highlight">technology</span> {' '}
                 with <span className="text-purple-500">passion</span> {' '}
                 to create <span className="text-green-500">solutions</span> {' '}
