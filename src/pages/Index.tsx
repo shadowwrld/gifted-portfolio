@@ -94,7 +94,7 @@ const Index = () => {
           <img
             ref={imageRef}
             src="https://xtknaolipemhxqikaytx.supabase.co/storage/v1/object/public/avatars/profile_pictures/-1745174332976.png?auto=format&fit=facearea&w=400&h=400"
-            alt="Gifted Tech avatar"
+            alt="Gifted Tech"
             className="rounded-full object-cover w-48 h-48 border-4 border-tech shadow-lg glass cursor-pointer mb-6 hover:shadow-xl transition-all duration-300 animate-glow"
             onClick={() => handleImageClick(false)}
             style={{
@@ -117,7 +117,7 @@ const Index = () => {
           <HeroText />
 
           <h2 className="text-2xl font-bold text-center mb-6">
-            <span className="text-highlight">Innovative</span> <span className="text-black dark:text-white">Solutions</span>
+            <span className="text-highlight">Innovating</span> <span className="text-black dark:text-white">Solutions with</span>
             <br />
             <span className="text-black dark:text-white">Digital</span> <span className="text-highlight">Excellence</span>
           </h2>
@@ -130,7 +130,7 @@ const Index = () => {
             <img
               ref={mobileImageRef}
               src="https://xtknaolipemhxqikaytx.supabase.co/storage/v1/object/public/avatars/profile_pictures/-1745174332976.png?auto=format&fit=facearea&w=400&h=400"
-              alt="Gifted Tech avatar"
+              alt="Gifted Tech"
               className="rounded-full object-cover w-48 h-48 border-4 border-tech shadow-lg glass cursor-pointer mb-6 hover:shadow-xl transition-all duration-300 animate-glow"
               onClick={() => handleImageClick(true)}
               style={{
@@ -152,7 +152,7 @@ const Index = () => {
             <HeroText />
 
             <h2 className="text-2xl font-bold text-center mb-6">
-              <span className="text-highlight">Innovative</span> <span className="text-black dark:text-white">Solutions</span>
+              <span className="text-highlight">Innovating</span> <span className="text-black dark:text-white">Solutions with</span>
               <br />
               <span className="text-black dark:text-white">Digital</span> <span className="text-highlight">Excellence</span>
             </h2>
@@ -162,7 +162,7 @@ const Index = () => {
           <div className="w-full flex flex-col items-center lg:items-start gap-6">
             {/* Paragraph */}
             <p className="text-center lg:text-left text-gray-700 dark:text-gray-300 max-w-md lg:max-w-2xl">
-              I'm a self-taught developer from Kenya. I'm still a student, currently in third year at Moi University - Eldoret. I have a passion for web development, app development, backend development and I love to learn new things. I'm also a tech enthusiast and I love to share my knowledge as well as collaborate with others.
+              I'm a self-learned developer from Kenya. I'm still a student, currently in third year school of Business and economics taking Bachelor of Business Management at Moi University - Eldoret. I have a passion for web development, app and software development, backend development and I love to learn new things. I'm also a tech enthusiast and I love to share my knowledge as well as collaborate with others.
             </p>
 
             {/* Cards */}
