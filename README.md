@@ -2,6 +2,8 @@
 
 - For better experience please view in dark mode
 
+- **[VIEW DEMO](https://giftedtech.web.id)**
+
 ![Portfolio Screenshot](https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//Screenshot%202025-04-21%20033605.png) 
 
 A modern, animated portfolio showcasing my skills, projects, and blog articles. Built with React, TypeScript, and Tailwind CSS.
