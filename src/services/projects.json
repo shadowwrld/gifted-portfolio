@@ -1,0 +1,67 @@
+
+[
+  {
+    "id": "1",
+    "title": "Bbm-Annex",
+    "image": "https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//Screenshot%202025-04-21%20021455.png",
+    "description": "A web application to assist students with study materials and general university life.",
+    "link": "https://bbmannex.giftedtech.web.id",
+    "source": "https://github.com/mauricegift/bbm-annex-frontend"
+  },
+  {
+    "id": "2",
+    "title": "Gifted Api",
+    "image": "https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//Screenshot%202025-04-21%20022808.png",
+    "description": "Application programming interphase for developers to allow easy integration with external apps.",
+    "link": "https://api.giftedtech.web.id",
+    "source": "https://api.giftedtech.web.id"
+  },
+  {
+    "id": "3",
+    "title": "Gifted-Md",
+    "image": "https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//Screenshot%202025-04-21%20021723.png",
+    "description": "A multidevice whatsapp user bot to enhance general whatsapp experience.",
+    "link": "https://pairing.giftedtech.web.id",
+    "source": "https://github.com/mauricegift/gifted-md"
+  },
+  {
+    "id": "4",
+    "title": "Gifted Cdn",
+    "image": "https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//Screenshot%202025-04-21%20021657.png",
+    "description": "All file uploader for storing and retrieving files at ease,,,with an api too.",
+    "link": "https://cdn.giftedtech.web.id",
+    "source": "https://cdn.giftedtech.web.id"
+  },
+  {
+    "id": "5",
+    "title": "Gifted-Ytdl",
+    "image": "https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//Screenshot%202025-04-21%20022321.png",
+    "description": "A free youtube downloader for downloading music and videos from youtube yet not affiliated in any way with youtube.",
+    "link": "https://ytdl.giftedtech.web.id",
+    "source": "https://ytdl.giftedtech.web.id"
+  },
+  {
+    "id": "6",
+    "title": "Telegram Contact Form",
+    "image": "https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//Screenshot%202025-04-21%20022946.png",
+    "description": "A simple contact form submitted via telegram bot",
+    "link": "https://api.giftedtech.web.id/contact",
+    "source": "https://github.com/mauricegift/telegram-contact-form"
+  },
+  {
+    "id": "7",
+    "title": "Telegram Bot",
+    "image": "https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//Screenshot%202025-04-21%20021821.png",
+    "description": "A telegram user bot integrated with various api, supports plugins and cases.",
+    "link": "https://t.me/giftedmd_bot",
+    "source": "https://github.com/mauricegift/telegram-bot"
+  },
+  {
+    "id": "7",
+    "title": "Website Downloader",
+    "image": "https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//webdl.png",
+    "description": "A tool for grabbing source code of websites.",
+    "link": "https://webdl.giftedtech.web.id",
+    "source": "https://github.com/mauricegift/website-downloader"
+  }
+]

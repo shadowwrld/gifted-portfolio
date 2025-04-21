@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 34 40 69;
+    --card: 255 255 255;
+    --card-foreground: 34 40 69;
+    --primary: 34 40 69;
+    --primary-foreground: 255 255 255;
+    --secondary: 224 224 224;
+    --secondary-foreground: 34 40 69;
+    --accent: 249 190 0;
+    --accent-foreground: 51 51 51;
+    --highlight: 81 196 211;
+    --highlight-foreground: 255 255 255;
+    --glass: 255 255 255 / 0.8;
+    --border: 190 190 190;
+    --input: 190 190 190;
+    --ring: 51 51 51;
+    --radius: 0.75rem;
+  }
+  body {
+    @apply bg-gradient-to-br from-[#f6f7fb] via-[#e0e0e0] to-[#fff];
+    color: rgb(var(--foreground));
+    font-family: "Roboto", sans-serif;
+    min-height: 100vh;
+    @apply antialiased;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  .glass {
+    backdrop-filter: blur(18px);
+    background: var(--glass);
+    box-shadow: 0 8px 32px rgba(31,38,135,0.13);
+    border-radius: var(--radius);
+    border: 1px solid rgba(224,224,224,0.15);
+  }
+  .menu-solid {
+    @apply bg-white text-[color:var(--foreground)] shadow-xl;
+  }
+  .menu-solid-dark {
+    @apply bg-black text-white shadow-xl;
+  }
+}
+
+/* ========== DARK MODE ADJUSTMENTS ========== */
+@layer base {
+  .dark {
+    --background: 18 18 18; /* Nearly black background */
+    --foreground: 236 239 244; /* Almost white for text */
+    --card: 28 28 32;          /* Very dark gray for cards */
+    --card-foreground: 236 239 244;
+    --primary: 0 0 0;          /* Fully black for header, primary UI */
+    --primary-foreground: 255 255 255;
+    --secondary: 30 30 30;     /* Deep gray for secondary UI */
+    --secondary-foreground: 236 239 244;
+    --accent: 249 190 0;
+    --accent-foreground: 41 41 41;
+    --highlight: 81 196 211;
+    --highlight-foreground: 255 255 255;
+    --glass: 15 15 15 / 0.9;   /* Glassmorphism with deep black */
+    --border: 35 38 70;
+    --input: 51 51 51;
+    --ring: 249 190 0;
+  }
+  .dark body {
+    @apply bg-gradient-to-br from-[#111214] via-[#15161a] to-[#232323];
+    color: rgb(var(--foreground));
+  }
+  .dark .glass {
+    background: var(--glass);
+    border: 1px solid rgba(30,30,30,0.50); /* Make glass border almost black */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+  .dark .menu-solid-dark {
+    @apply bg-black text-white shadow-xl;
+  }
+
+  /* Properly color input & textarea placeholders in dark mode */
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: #9fa6b2 !important;    /* subtle light gray */
+    opacity: 1 !important;        /* fully opaque */
+  }
+}
+
+@layer components {
+  .text-accent {
+    color: #f9be00;
+  }
+  .text-primary {
+    color: #222845;
+  }
+  .text-highlight {
+    color: #51c4d3;
+  }
+  .shadow-hover {
+    @apply transition-transform duration-300 hover:scale-105 hover:shadow-xl;
+  }
+  .typing-cursor {
+    border-right: .13em solid #51c4d3;
+    color: inherit;
+    animation: blink 0.75s step-end infinite;
+  }
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+  .heartbeat {
+    animation: heartbeat 1.4s infinite;
+  }
+  .glow-container {
+    box-shadow: 0 4px 20px 3px rgba(81,196,211,0.20), 0 0 12px 2px #f9be0025;
+    transition: box-shadow 0.3s;
+  }
+  .dark .glow-container {
+    box-shadow: 0 4px 24px 4px #0006, 0 0 16px 3px #f9be0030; /* More dark neutral glow */
+  }
+  /* Slow heartbeat for smoother pulsating effect */
+  .heartbeat-slow {
+    animation: heartbeat-slow 2.8s infinite;
+  }
+}
+/* keyframes for heartbeat-slow, unchanged */
+@keyframes heartbeat-slow {
+  0%, 100% { transform: scale(1); }
+  10%, 30% { transform: scale(1.1); }
+  20%, 40% { transform: scale(0.95); }
+  50% { transform: scale(1.15); }
+  60%, 80%, 90% { transform: scale(1); }
+}
+
+/* Add a border-top above the footer */
+.footer-border {
+  border-top: 1.5px solid #ebebeb;
+}
+.dark .footer-border {
+  border-top: 1.5px solid #161616;
+}
+
+/* BLOG PAGE — Ensure in dark mode content is visible */
+.dark .glass,
+.dark .blog-content,
+.dark .blog-card {
+  background: rgba(10, 10, 10, 0.96) !important; /* nearly black glass cards on dark */
+  color: #f9f9f9;
+}
+
+.dark .blog-content h2,
+.dark .blog-content h3,
+.dark .blog-content h4,
+.dark .blog-content h5 {
+  color: #fff;
+}
+
+/* Make sure blog paragraphs/readable in dark */
+.dark .blog-content {
+  color: #f4f4f4;
+}
+
+/* Make links stand out in dark mode */
+.dark a {
+  color: #f9be00;
+}
