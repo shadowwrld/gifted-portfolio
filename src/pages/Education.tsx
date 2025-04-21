@@ -18,7 +18,7 @@ const educationData = [
     title: "Kenya Certificate of Secondary Education",
     place: "Got Agulu Boys High School, Yimbo-Siaya County",
     date: "2017 - 2020",
-    desc: "I Attained a mean grade of B+ not bad enough to proceed to university education."
+    desc: "I Attained a mean grade of B- not low enough to proceed to university education."
   },
   {
     title: "Primary School Certificate",
