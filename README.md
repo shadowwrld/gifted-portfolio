@@ -32,4 +32,3 @@ A modern, animated portfolio showcasing my skills, projects, and blog articles. 
   ![ESLint](https://img.shields.io/badge/-ESLint-4B32C3?logo=eslint&logoColor=white)
   ![Prettier](https://img.shields.io/badge/-Prettier-F7B93E?logo=prettier&logoColor=white)
 
-## 📦 Project Structure
