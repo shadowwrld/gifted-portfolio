@@ -1,8 +1,10 @@
 # Gifted Maurice Portfolio
 
-- For better experience please view in dark mode
+- For better experience please view in dark theme
 
 - **[VIEW DEMO](https://giftedtech.web.id)**
+
+- You can check out my old portfolio **[HERE](https://github.com/mauricegift/gifted-portfolio-old)**
 
 ![Portfolio Screenshot](https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//Screenshot%202025-04-21%20033605.png) 
 
