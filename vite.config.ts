@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     allowedHosts: [
-      "portfolio.giftedtech.web.id"
+      "portfolio.giftedtech.web.id",
       "vscode.giftedtech.web.id", 
       "giftedtech.web.id",        
       "localhost"                 
