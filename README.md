@@ -6,7 +6,7 @@
 
 - You can check out my old portfolio repo **[HERE](https://github.com/mauricegift/gifted-portfolio-old)**
 
-![Portfolio Screenshot](https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//Screenshot%202025-04-21%20033605.png) 
+![Portfolio Screenshot](https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//Screenshot%202025-04-22%20112843.png) 
 
 A modern, animated portfolio showcasing my skills, projects, and blog articles. Built with React, TypeScript, and Tailwind CSS.
 
