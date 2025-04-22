@@ -59,7 +59,7 @@ const Blogs = () => {
       </div>
       
       <motion.div 
-        className="mb-8 text-gray-300 text-center max-w-lg mx-auto text-lg min-h-[100px]"
+        className="mb-8 text-gray-800 dark:text-gray-300 text-center max-w-lg mx-auto text-lg min-h-[100px] leading-relaxed"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
