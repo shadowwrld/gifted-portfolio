@@ -63,7 +63,7 @@ const Education = () => {
   return (
     <section className="container px-4 py-10 flex flex-col items-center">
       <div className="relative mb-12 w-full max-w-3xl text-center">
-        <h2 className="text-4xl font-bold text-tech mb-2">Education</h2>
+        <h2 className="text-4xl font-bold text-tech mb-2">My Education</h2>
         <div className="absolute bottom-0 left-0 right-0 h-1 overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-full bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-90 animate-moveDots"></div>
         </div>
