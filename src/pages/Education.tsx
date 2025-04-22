@@ -31,6 +31,8 @@ const educationData = [
 const Education = () => {
   const [typedDesc, setTypedDesc] = useState<string[]>(educationData.map(() => ""));
   const [currentCard, setCurrentCard] = useState(0);
+  const [welcomeText, setWelcomeText] = useState("");
+  const welcomeMessage = "My educational journey reflects my passion for continuous learning and growth. From formal education to self-directed tech learning, each step has shaped my skills and perspective. Here's a timeline of my academic path.";
 
   useEffect(() => {
     // Infinite bounce animation cycle
@@ -38,17 +40,28 @@ const Education = () => {
       setCurrentCard((prev) => (prev + 1) % educationData.length);
     }, 3000);
 
+    // Typewriter effect for welcome paragraph
+    let i = 0;
+    const welcomeTyping = setInterval(() => {
+      if (i <= welcomeMessage.length) {
+        setWelcomeText(welcomeMessage.substring(0, i));
+        i++;
+      } else {
+        clearInterval(welcomeTyping);
+      }
+    }, 20);
+
     // Typewriter effect for each card
     educationData.forEach((item, idx) => {
-      let i = 0;
+      let j = 0;
       const typing = setInterval(() => {
-        if (i <= item.desc.length) {
+        if (j <= item.desc.length) {
           setTypedDesc(prev => {
             const newArr = [...prev];
-            newArr[idx] = item.desc.substring(0, i);
+            newArr[idx] = item.desc.substring(0, j);
             return newArr;
           });
-          i++;
+          j++;
         } else {
           clearInterval(typing);
         }
@@ -57,6 +70,7 @@ const Education = () => {
 
     return () => {
       clearInterval(interval);
+      clearInterval(welcomeTyping);
     };
   }, []);
 
@@ -69,17 +83,10 @@ const Education = () => {
         </div>
       </div>
 
-      {/* Added welcome paragraph with animation */}
-      <motion.p 
-        className="mb-12 text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto text-lg leading-relaxed"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-      >
-        My educational journey reflects my passion for continuous learning and growth. 
-        From formal education to self-directed tech learning, each step has shaped my 
-        skills and perspective. Here's a timeline of my academic path.
-      </motion.p>
+      <div className="mb-12 text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto text-lg leading-relaxed min-h-[100px]">
+        {welcomeText}
+        <span className="animate-pulse">|</span>
+      </div>
 
       <div className="max-w-2xl mx-auto flex flex-col gap-8 w-full">
         {educationData.map((item, idx) => (
@@ -108,7 +115,7 @@ const Education = () => {
             
             <div className="mb-3 relative z-10">
               <span className="text-tech font-medium bg-gradient-to-r from-yellow-200 to-yellow-100 dark:from-yellow-900 dark:to-yellow-800 px-2 py-1 rounded-md">
-                {item.place.replace(/ - /g, " \u2011 ")} {/* Using non-breaking hyphen */}
+                {item.place.replace(/ - /g, " \u2011 ")}
               </span>
               <span className="text-xs text-gray-500 dark:text-gray-400 ml-2 border-l border-gray-300 dark:border-gray-600 pl-2">
                 {item.date.replace(/ - /g, " \u2011 ")}
