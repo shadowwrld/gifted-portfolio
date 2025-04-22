@@ -1,3 +1,5 @@
+import SocialMediaIcons from "@/components/SocialMediaIcons";
+
 const Footer = () => {
   const slowHeartbeat = {
     animation: "slowHeartbeat 1s infinite",
@@ -13,21 +15,33 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer-border glass py-3 flex justify-center items-center mt-8 shadow-inner gap-2 relative">
-      <span 
-        className="font-semibold text-md text-tech select-none"
-        style={slowHeartbeat}
-      >
-        © {new Date().getFullYear()} Gifted Tech
-      </span>
-      <span
-        className="ml-2 text-lg select-none"
-        role="img"
-        aria-label="heartbeat"
-        style={heartStyle}
-      >
-        💛
-      </span>
+    <footer className="footer-border glass py-3 flex flex-col items-center mt-8 shadow-inner gap-2 relative">
+      <div className="flex items-center">
+        <span 
+          className="font-semibold text-md text-tech select-none"
+          style={slowHeartbeat}
+        >
+          © {new Date().getFullYear()} Gifted Tech
+        </span>
+        <span
+          className="ml-2 text-lg select-none"
+          role="img"
+          aria-label="heartbeat"
+          style={heartStyle}
+        >
+          💛
+        </span>
+      </div>
+
+      <div className="mt-2 mb-2">
+        <div className="flex justify-center scale-75">
+          <SocialMediaIcons slow />
+        </div>
+      </div>
+
+      <div className="text-sm text-gray-500 dark:text-gray-400">
+        All Rights Reserved
+      </div>
       
       <style>{`
         @keyframes heartbeat {
