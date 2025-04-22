@@ -22,9 +22,15 @@ const educationData = [
   },
   {
     title: "Primary School Certificate",
-    place: "Bondo - Siaya County",
-    date: "2010 - 2016",
+    place: "Nyamira Mixed Primary School, Bondo - Siaya County",
+    date: "2008 - 2016",
     desc: "I Obtained a score of 304 marks and qualified to join secondary school."
+  },
+  {
+    title: "Pre-Primary(Nursery) School Certificate",
+    place: "Obedi Koyange ECD School, Bondo - Siaya County",
+    date: "2005 - 2008",
+    desc: "I graduated and this marked my first time graduating in life."
   }
 ];
 
