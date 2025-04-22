@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 
 const TITLES = [
@@ -37,7 +36,7 @@ const HeroText = () => {
 
   return (
     <>
-      <h2 className="text-xl md:text-2xl font-bold h-10 font-monospace flex items-center animate-slide-down">
+      <h2 className="text-lg md:text-xl font-bold h-8 font-monospace flex items-center animate-slide-down">
         <span className="typing-cursor">{display || '\u00A0'}</span>
       </h2>
     </>
