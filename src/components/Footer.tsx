@@ -16,6 +16,12 @@ const Footer = () => {
 
   return (
     <footer className="footer-border glass py-3 flex flex-col items-center mt-8 shadow-inner gap-2 relative">
+      {/* Social Icons first */}
+      <div className="flex justify-center scale-75">
+        <SocialMediaIcons slow />
+      </div>
+
+      {/* Copyright text with heart */}
       <div className="flex items-center">
         <span 
           className="font-semibold text-md text-tech select-none"
@@ -33,12 +39,7 @@ const Footer = () => {
         </span>
       </div>
 
-      <div className="mt-2 mb-2">
-        <div className="flex justify-center scale-75">
-          <SocialMediaIcons slow />
-        </div>
-      </div>
-
+      {/* All Rights Reserved text */}
       <div className="text-sm text-gray-500 dark:text-gray-400">
         All Rights Reserved
       </div>
