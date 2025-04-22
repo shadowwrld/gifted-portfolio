@@ -4,24 +4,56 @@ import HeroText from "@/components/HeroText";
 const Index = () => {
   const imageRef = useRef<HTMLImageElement>(null);
   const mobileImageRef = useRef<HTMLImageElement>(null);
-  const techImageRef = useRef<HTMLImageElement>(null);
+  const cursorRef = useRef<HTMLSpanElement>(null);
   const floatingBoxRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const underlineRef = useRef<HTMLDivElement>(null);
+  const techImageRef = useRef<HTMLImageElement>(null);
+  const techImageMobileRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    // Spin animation for desktop and mobile images
+    // Image spin animation for both desktop and mobile
     const spinImage = (img: HTMLImageElement | null) => {
       if (img) {
-        img.style.animation = 'spinClockwise 8s linear infinite';
+        img.style.transform = 'rotate(720deg)';
+        img.style.transition = 'transform 1.5s cubic-bezier(0.25, 1, 0.5, 1)';
+        
+        setTimeout(() => {
+          if (img) {
+            img.style.transform = 'rotate(0deg)';
+          }
+        }, 10);
       }
     };
 
     spinImage(imageRef.current);
     spinImage(mobileImageRef.current);
 
-    // Tech image animation (spin only)
-    if (techImageRef.current) {
-      techImageRef.current.style.animation = 'spinAnticlockwise 10s linear infinite';
-    }
+    // Tech image animation (alternating rotation)
+    const rotateTechImage = (img: HTMLImageElement | null) => {
+      if (img) {
+        img.style.animation = 'rotateClockwise 8s linear infinite';
+        
+        // Alternate direction every 4 seconds
+        setInterval(() => {
+          if (img) {
+            const currentAnim = img.style.animation.includes('clockwise') 
+              ? 'rotateCounterClockwise 8s linear infinite' 
+              : 'rotateClockwise 8s linear infinite';
+            img.style.animation = currentAnim;
+          }
+        }, 8000);
+      }
+    };
+
+    rotateTechImage(techImageRef.current);
+    rotateTechImage(techImageMobileRef.current);
+
+    // Cursor blinking animation
+    const cursorInterval = setInterval(() => {
+      if (cursorRef.current) {
+        cursorRef.current.style.opacity = cursorRef.current.style.opacity === '0' ? '1' : '0';
+      }
+    }, 500);
 
     // Floating box animations
     floatingBoxRefs.current.forEach(box => {
@@ -29,6 +61,8 @@ const Index = () => {
         box.style.animation = 'float 3s ease-in-out infinite';
       }
     });
+
+    return () => clearInterval(cursorInterval);
   }, []);
 
   const handleImageClick = (isMobile = false) => {
@@ -47,27 +81,72 @@ const Index = () => {
     <>
       <style>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
         }
         @keyframes glow {
-          0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 255, 0.5); }
-          50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); }
+          0%, 100% {
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+          }
+          50% {
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+          }
         }
         @keyframes moveDots {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
         }
-        @keyframes spinClockwise {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+        @keyframes rotateClockwise {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
         }
-        @keyframes spinAnticlockwise {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(-360deg); }
+        @keyframes rotateCounterClockwise {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(-360deg);
+          }
         }
         .animate-moveDots {
           animation: moveDots 3s linear infinite;
+        }
+        .tech-image-container {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .tech-image-rays {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(circle, rgba(0,255,255,0.3) 0%, rgba(0,255,255,0) 70%);
+          animation: pulseRay 4s ease-in-out infinite;
+          border-radius: 50%;
+          pointer-events: none;
+        }
+        @keyframes pulseRay {
+          0%, 100% {
+            transform: scale(1);
+            opacity: 0.7;
+          }
+          50% {
+            transform: scale(1.3);
+            opacity: 0.3;
+          }
         }
       `}</style>
 
@@ -86,6 +165,7 @@ const Index = () => {
             }}
           />
           
+          {/* Gifted Tech with animated underline */}
           <div className="relative mb-4">
             <h1 className="text-4xl font-black font-montserrat flex gap-2 leading-tight">
               <span className="text-highlight">Gifted</span>
@@ -107,7 +187,7 @@ const Index = () => {
 
         {/* Right Column - Shows on all screens */}
         <div className="w-full lg:w-2/3 flex flex-col items-center">
-          {/* Mobile: Image and Hero Text */}
+          {/* Mobile Only: Image and Hero Text */}
           <div className="lg:hidden flex flex-col items-center w-full mb-8">
             <img
               ref={mobileImageRef}
@@ -140,38 +220,70 @@ const Index = () => {
             </h2>
           </div>
 
-          {/* Content Area */}
+          {/* Content Area (shows on all screens) */}
           <div className="w-full flex flex-col lg:flex-row items-center gap-6">
             <div className="flex flex-col items-center lg:items-start gap-6 lg:w-2/3">
+              {/* Paragraph */}
               <p className="text-center lg:text-left text-gray-700 dark:text-gray-300 max-w-md lg:max-w-2xl">
-                I'm a self-learned developer from Kenya. I'm still a student, currently in third year school of Business and economics taking Bachelor of Business Management at Moi University - Eldoret. I have a passion for web development, app and software development, backend development and I love to learn new things.
+                I'm a self-learned developer from Kenya. I'm still a student, currently in third year school of Business and economics taking Bachelor of Business Management at Moi University - Eldoret. </br>I have a passion for web development, app and software development, backend development and I love to learn new things. I'm also a tech enthusiast and I love to share my knowledge as well as collaborate with others.
               </p>
 
+              {/* Cards */}
               <div 
                 ref={el => floatingBoxRefs.current[0] = el}
                 className="w-full max-w-md p-4 rounded-lg shadow-md bg-white/80 dark:bg-black/80"
               >
                 <p className="text-center lg:text-left">
-                  <span className="text-tech font-bold">Gifted Tech</span> crafts digital experiences that inspire and transform.
+                  <span className="text-tech font-bold">Gifted Tech</span> {' '}
+                  <span className="text-highlight">crafts</span> {' '}
+                  digital <span className="text-purple-500">experiences</span> {' '}
+                  that <span className="text-green-500">inspire</span> {' '}
+                  and <span className="text-yellow-500">transform</span>.
                 </p>
               </div>
 
+              {/* Second Paragraph */}
               <p className="text-center lg:text-left text-gray-700 dark:text-gray-300 max-w-md lg:max-w-2xl">
-                My journey in technology has been driven by curiosity and a desire to create meaningful solutions.
+                My journey in technology has been driven by curiosity and a desire to create meaningful solutions. I specialize in building responsive, accessible, and performant digital experiences that make an impact.
               </p>
+
+              <div 
+                ref={el => floatingBoxRefs.current[1] = el}
+                className="w-full max-w-md p-4 rounded-lg shadow-md bg-white/80 dark:bg-black/80"
+              >
+                <p className="text-center lg:text-left">
+                  <span className="text-tech font-bold">I try to blend</span> {' '}
+                  <span className="text-highlight">technology</span> {' '}
+                  with <span className="text-purple-500">passion</span> {' '}
+                  to create <span className="text-green-500">solutions</span> {' '}
+                  that <span className="text-yellow-500">shine</span>.
+                </p>
+              </div>
             </div>
 
-            {/* Tech Image - Shows on both desktop and mobile */}
-            <div className="flex justify-center items-center w-full lg:w-1/3 mt-6 lg:mt-0">
-              <img
-                ref={techImageRef}
-                src="https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//vecteezy_modern-cybersecurity-technology-blue-eye-cutout_13471571.png"
-                alt="Technology Illustration"
-                className="w-48 h-48 lg:w-64 lg:h-64 object-contain"
-                style={{
-                  filter: 'drop-shadow(0 0 10px rgba(0, 255, 255, 0.6))'
-                }}
-              />
+            {/* Tech Image - Shows on both mobile and desktop */}
+            <div className="tech-image-container w-full lg:w-1/3 flex justify-center items-center my-8 lg:my-0">
+              <div className="relative">
+                <div className="tech-image-rays"></div>
+                <img
+                  ref={techImageRef}
+                  src="https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//vecteezy_modern-cybersecurity-technology-blue-eye-cutout_13471571.png"
+                  alt="Technology Illustration"
+                  className="w-48 h-48 lg:w-64 lg:h-64 object-contain hidden lg:block"
+                  style={{
+                    filter: 'drop-shadow(0 0 10px rgba(0, 255, 255, 0.6))'
+                  }}
+                />
+                <img
+                  ref={techImageMobileRef}
+                  src="https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//vecteezy_modern-cybersecurity-technology-blue-eye-cutout_13471571.png"
+                  alt="Technology Illustration"
+                  className="w-48 h-48 lg:w-64 lg:h-64 object-contain lg:hidden"
+                  style={{
+                    filter: 'drop-shadow(0 0 10px rgba(0, 255, 255, 0.6))'
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
