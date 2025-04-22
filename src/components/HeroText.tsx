@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const TITLES = [
   "I'm a Web Developer...",
   "I'm a Hobby Programmer...",
-  "I'm a Student...",
+  "I'm a Full Time Student...",
   "I'm a Bot Developer..."
 ];
 
