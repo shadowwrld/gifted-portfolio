@@ -182,7 +182,7 @@ const Index = () => {
             <div className="flex flex-col items-center lg:items-start gap-6 lg:w-2/3">
               {/* Paragraph */}
               <p className="text-center lg:text-left text-gray-700 dark:text-gray-300 max-w-md lg:max-w-2xl">
-                I'm a self-learned developer from Kenya. I'm still a student, currently in third year school of Business and economics taking Bachelor of Business Management at Moi University - Eldoret. I have a passion for web development, app and software development, backend development and I love to learn new things. I'm also a tech enthusiast and I love to share my knowledge as well as collaborate with others.
+                I'm a self-learned developer from Kenya. I'm still a student, currently in third year school of Business and economics taking Bachelor of Business Management at Moi University - Eldoret. </br>I have a passion for web development, app and software development, backend development and I love to learn new things. I'm also a tech enthusiast and I love to share my knowledge as well as collaborate with others.
               </p>
 
               {/* Cards */}
