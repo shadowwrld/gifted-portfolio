@@ -212,8 +212,18 @@ const Header = () => {
             </div>
 
             <div className="mt-4 mb-4">
-              <div className="flex justify-center mb-4 scale-75">
-                <SocialMediaIcons slow />
+              <div className="flex justify-center items-center gap-4 mb-4">
+                {/* Added theme toggle in mobile menu */}
+                <button
+                  onClick={() => setTheme(isDark ? "light" : "dark")}
+                  aria-label={isDark ? "Activate light mode" : "Activate dark mode"}
+                  className="p-2 rounded-full hover:bg-secondary transition-colors"
+                >
+                  {isDark ? <Sun className="w-5 h-5 text-accent" /> : <Moon className="w-5 h-5 text-accent" />}
+                </button>
+                <div className="scale-75">
+                  <SocialMediaIcons slow />
+                </div>
               </div>
               <div className={`text-center text-sm p-4 rounded-lg shadow-md ${
                 isDark ? 'bg-gray-900' : 'bg-gray-100'
@@ -221,6 +231,7 @@ const Header = () => {
                 <p className="animate-pulse">
                   &copy; 2023 - {new Date().getFullYear()} <span className="text-accent"> Gifted Tech</span>
                 </p>
+                <p className="text-xs mt-1">All Rights Reserved</p>
               </div>
             </div>
           </div>
