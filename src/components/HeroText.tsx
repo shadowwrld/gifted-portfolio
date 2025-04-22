@@ -36,7 +36,7 @@ const HeroText = () => {
 
   return (
     <>
-      <h2 className="text-lg md:text-xl font-bold h-8 flex items-center animate-slide-down font-mono">
+      <h2 className="text-sm md:text-lg font-bold h-8 flex items-center animate-slide-down font-mono">
         <span className="typing-cursor">{display || '\u00A0'}</span>
       </h2>
     </>
