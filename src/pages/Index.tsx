@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import HeroText from "@/components/HeroText";
-import SocialMediaIcons from "@/components/SocialMediaIcons";
 
 const Index = () => {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -8,6 +7,7 @@ const Index = () => {
   const cursorRef = useRef<HTMLSpanElement>(null);
   const floatingBoxRefs = useRef<(HTMLDivElement | null)[]>([]);
   const underlineRef = useRef<HTMLDivElement>(null);
+  const techImageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     // Image spin animation for both desktop and mobile
@@ -26,6 +26,11 @@ const Index = () => {
 
     spinImage(imageRef.current);
     spinImage(mobileImageRef.current);
+
+    // Tech image animation (bounce and spin)
+    if (techImageRef.current) {
+      techImageRef.current.style.animation = 'bounceSpin 4s ease-in-out infinite';
+    }
 
     // Cursor blinking animation
     const cursorInterval = setInterval(() => {
@@ -81,6 +86,20 @@ const Index = () => {
           }
           100% {
             transform: translateX(100%);
+          }
+        }
+        @keyframes bounceSpin {
+          0%, 100% {
+            transform: translateY(0) rotate(0deg);
+          }
+          25% {
+            transform: translateY(-20px) rotate(90deg);
+          }
+          50% {
+            transform: translateY(0) rotate(180deg);
+          }
+          75% {
+            transform: translateY(-20px) rotate(270deg);
           }
         }
         .animate-moveDots {
@@ -159,42 +178,57 @@ const Index = () => {
           </div>
 
           {/* Content Area (shows on all screens) */}
-          <div className="w-full flex flex-col items-center lg:items-start gap-6">
-            {/* Paragraph */}
-            <p className="text-center lg:text-left text-gray-700 dark:text-gray-300 max-w-md lg:max-w-2xl">
-              I'm a self-learned developer from Kenya. I'm still a student, currently in third year school of Business and economics taking Bachelor of Business Management at Moi University - Eldoret. I have a passion for web development, app and software development, backend development and I love to learn new things. I'm also a tech enthusiast and I love to share my knowledge as well as collaborate with others.
-            </p>
-
-            {/* Cards */}
-            <div 
-              ref={el => floatingBoxRefs.current[0] = el}
-              className="w-full max-w-md p-4 rounded-lg shadow-md bg-white/80 dark:bg-black/80"
-            >
-              <p className="text-center lg:text-left">
-                <span className="text-tech font-bold">Gifted Tech</span> {' '}
-                <span className="text-highlight">crafts</span> {' '}
-                digital <span className="text-purple-500">experiences</span> {' '}
-                that <span className="text-green-500">inspire</span> {' '}
-                and <span className="text-yellow-500">transform</span>.
+          <div className="w-full flex flex-col lg:flex-row items-center gap-6">
+            <div className="flex flex-col items-center lg:items-start gap-6 lg:w-2/3">
+              {/* Paragraph */}
+              <p className="text-center lg:text-left text-gray-700 dark:text-gray-300 max-w-md lg:max-w-2xl">
+                I'm a self-learned developer from Kenya. I'm still a student, currently in third year school of Business and economics taking Bachelor of Business Management at Moi University - Eldoret. I have a passion for web development, app and software development, backend development and I love to learn new things. I'm also a tech enthusiast and I love to share my knowledge as well as collaborate with others.
               </p>
+
+              {/* Cards */}
+              <div 
+                ref={el => floatingBoxRefs.current[0] = el}
+                className="w-full max-w-md p-4 rounded-lg shadow-md bg-white/80 dark:bg-black/80"
+              >
+                <p className="text-center lg:text-left">
+                  <span className="text-tech font-bold">Gifted Tech</span> {' '}
+                  <span className="text-highlight">crafts</span> {' '}
+                  digital <span className="text-purple-500">experiences</span> {' '}
+                  that <span className="text-green-500">inspire</span> {' '}
+                  and <span className="text-yellow-500">transform</span>.
+                </p>
+              </div>
+
+              {/* Second Paragraph */}
+              <p className="text-center lg:text-left text-gray-700 dark:text-gray-300 max-w-md lg:max-w-2xl">
+                My journey in technology has been driven by curiosity and a desire to create meaningful solutions. I specialize in building responsive, accessible, and performant digital experiences that make an impact.
+              </p>
+
+              <div 
+                ref={el => floatingBoxRefs.current[1] = el}
+                className="w-full max-w-md p-4 rounded-lg shadow-md bg-white/80 dark:bg-black/80"
+              >
+                <p className="text-center lg:text-left">
+                  <span className="text-tech font-bold">I try to blend</span> {' '}
+                  <span className="text-highlight">technology</span> {' '}
+                  with <span className="text-purple-500">passion</span> {' '}
+                  to create <span className="text-green-500">solutions</span> {' '}
+                  that <span className="text-yellow-500">shine</span>.
+                </p>
+              </div>
             </div>
 
-            {/* Social Icons */}
-            <div className="flex my-4">
-              <SocialMediaIcons slow />
-            </div>
-
-            <div 
-              ref={el => floatingBoxRefs.current[1] = el}
-              className="w-full max-w-md p-4 rounded-lg shadow-md bg-white/80 dark:bg-black/80"
-            >
-              <p className="text-center lg:text-left">
-                <span className="text-tech font-bold">I try to blend</span> {' '}
-                <span className="text-highlight">technology</span> {' '}
-                with <span className="text-purple-500">passion</span> {' '}
-                to create <span className="text-green-500">solutions</span> {' '}
-                that <span className="text-yellow-500">shine</span>.
-              </p>
+            {/* Tech Image - Only shows on desktop */}
+            <div className="hidden lg:flex lg:w-1/3 justify-center items-center">
+              <img
+                ref={techImageRef}
+                src="https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//vecteezy_modern-cybersecurity-technology-blue-eye-cutout_13471571.png"
+                alt="Technology Illustration"
+                className="w-64 h-64 object-contain"
+                style={{
+                  filter: 'drop-shadow(0 0 10px rgba(0, 255, 255, 0.6))'
+                }}
+              />
             </div>
           </div>
         </div>
