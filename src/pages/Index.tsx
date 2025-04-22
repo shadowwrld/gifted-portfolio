@@ -56,9 +56,9 @@ const Index = () => {
     }, 500);
 
     // Floating box animations
-    floatingBoxRefs.current.forEach(box => {
+    floatingBoxRefs.current.forEach((box, index) => {
       if (box) {
-        box.style.animation = 'float 3s ease-in-out infinite';
+        box.style.animation = `float 3s ease-in-out ${index * 0.2}s infinite`;
       }
     });
 
@@ -148,6 +148,28 @@ const Index = () => {
             opacity: 0.3;
           }
         }
+        .floating-card {
+          width: 100%;
+          max-width: 28rem;
+          padding: 1.5rem;
+          border-radius: 0.5rem;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          background: rgba(255, 255, 255, 0.8);
+          backdrop-filter: blur(10px);
+          margin-bottom: 1.5rem;
+          transition: all 0.3s ease;
+        }
+        .dark .floating-card {
+          background: rgba(0, 0, 0, 0.8);
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+        .floating-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .dark .floating-card:hover {
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+        }
       `}</style>
 
       <section className="flex flex-col lg:flex-row items-center justify-center gap-8 px-4 py-12 min-h-[80vh]">
@@ -228,10 +250,10 @@ const Index = () => {
                 I'm a self-learned developer from Kenya. I'm still a student, currently in third year school of Business and economics taking Bachelor of Business Management at Moi University - Eldoret. </br>I have a passion for web development, app and software development, backend development and I love to learn new things. I'm also a tech enthusiast and I love to share my knowledge as well as collaborate with others.
               </p>
 
-              {/* Cards */}
+              {/* First Card */}
               <div 
                 ref={el => floatingBoxRefs.current[0] = el}
-                className="w-full max-w-md p-4 rounded-lg shadow-md bg-white/80 dark:bg-black/80"
+                className="floating-card"
               >
                 <p className="text-center lg:text-left">
                   <span className="text-tech font-bold">Gifted Tech</span> {' '}
@@ -247,9 +269,10 @@ const Index = () => {
                 My journey in technology has been driven by curiosity and a desire to create meaningful solutions. I specialize in building responsive, accessible, and performant digital experiences that make an impact.
               </p>
 
+              {/* Second Card */}
               <div 
                 ref={el => floatingBoxRefs.current[1] = el}
-                className="w-full max-w-md p-4 rounded-lg shadow-md bg-white/80 dark:bg-black/80"
+                className="floating-card"
               >
                 <p className="text-center lg:text-left">
                   <span className="text-tech font-bold">I try to blend</span> {' '}
@@ -263,13 +286,13 @@ const Index = () => {
 
             {/* Tech Image - Shows on both mobile and desktop */}
             <div className="tech-image-container w-full lg:w-1/3 flex justify-center items-center my-8 lg:my-0">
-              <div className="relative">
+              <div className="relative w-40 h-40 lg:w-48 lg:h-48">
                 <div className="tech-image-rays"></div>
                 <img
                   ref={techImageRef}
                   src="https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//vecteezy_modern-cybersecurity-technology-blue-eye-cutout_13471571.png"
                   alt="Technology Illustration"
-                  className="w-48 h-48 lg:w-64 lg:h-64 object-contain hidden lg:block"
+                  className="w-full h-full object-contain hidden lg:block"
                   style={{
                     filter: 'drop-shadow(0 0 10px rgba(0, 255, 255, 0.6))'
                   }}
@@ -278,7 +301,7 @@ const Index = () => {
                   ref={techImageMobileRef}
                   src="https://zanalydpkhnbrjipfldc.supabase.co/storage/v1/object/public/juustgifted//vecteezy_modern-cybersecurity-technology-blue-eye-cutout_13471571.png"
                   alt="Technology Illustration"
-                  className="w-48 h-48 lg:w-64 lg:h-64 object-contain lg:hidden"
+                  className="w-full h-full object-contain lg:hidden"
                   style={{
                     filter: 'drop-shadow(0 0 10px rgba(0, 255, 255, 0.6))'
                   }}
