@@ -5,9 +5,24 @@ import BlogCard from "@/components/BlogCard";
 
 const Blogs = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [welcomeText, setWelcomeText] = useState("");
+  const welcomeMessage = "Welcome to my blog space! Here I share my thoughts, experiences, and knowledge about web development, design, and technology. Feel free to explore and learn something new.";
 
   useEffect(() => {
     setIsVisible(true);
+    
+    // Typewriter effect for welcome paragraph
+    let i = 0;
+    const typing = setInterval(() => {
+      if (i <= welcomeMessage.length) {
+        setWelcomeText(welcomeMessage.substring(0, i));
+        i++;
+      } else {
+        clearInterval(typing);
+      }
+    }, 20);
+
+    return () => clearInterval(typing);
   }, []);
 
   const containerVariants = {
@@ -43,16 +58,15 @@ const Blogs = () => {
         </div>
       </div>
       
-      {/* Welcome paragraph added here */}
-      <motion.p 
-        className="mb-8 text-gray-300 text-center max-w-lg mx-auto"
+      <motion.div 
+        className="mb-8 text-gray-300 text-center max-w-lg mx-auto text-lg min-h-[100px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
       >
-        Welcome to my blog space! Here I share my thoughts, experiences, and knowledge about 
-        web development, design, and technology. Feel free to explore and learn something new.
-      </motion.p>
+        {welcomeText}
+        <span className="animate-pulse">|</span>
+      </motion.div>
 
       <motion.div
         className="grid gap-7 md:grid-cols-2 lg:grid-cols-3 w-full"
