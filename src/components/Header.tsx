@@ -212,18 +212,22 @@ const Header = () => {
             </div>
 
             <div className="mt-3 mb-3">
-              <div className="flex justify-center items-center gap-3 mb-3">
+              {/* Theme toggle moved above social icons */}
+              <div className="flex justify-center mb-3">
                 <button
                   onClick={() => setTheme(isDark ? "light" : "dark")}
                   aria-label={isDark ? "Activate light mode" : "Activate dark mode"}
-                  className="p-1 rounded-full hover:bg-secondary transition-colors"
+                  className="p-2 rounded-full hover:bg-secondary transition-colors mb-3"
                 >
-                  {isDark ? <Sun className="w-4 h-4 text-accent" /> : <Moon className="w-4 h-4 text-accent" />}
+                  {isDark ? <Sun className="w-5 h-5 text-accent" /> : <Moon className="w-5 h-5 text-accent" />}
                 </button>
-                <div className="scale-70">
-                  <SocialMediaIcons slow />
-                </div>
               </div>
+              
+              {/* Social icons */}
+              <div className="flex justify-center scale-75 mb-3">
+                <SocialMediaIcons slow />
+              </div>
+              
               <div className={`text-center text-xs p-3 rounded-lg shadow-md ${
                 isDark ? 'bg-gray-900' : 'bg-gray-100'
               }`}>
