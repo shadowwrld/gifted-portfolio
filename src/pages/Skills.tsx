@@ -34,8 +34,21 @@ const skillsData = [
 const Skills = () => {
   const [visibleCategories, setVisibleCategories] = useState<number[]>([]);
   const [visibleSkills, setVisibleSkills] = useState<{[key: number]: number[]}>({});
+  const [typedText, setTypedText] = useState("");
+  const fullText = "With a diverse skill set spanning multiple programming languages, frameworks, and databases, I bring comprehensive technical expertise to every project. Below you'll find a breakdown of my proficiency levels across different technologies.";
 
   useEffect(() => {
+    // Typewriter effect
+    let i = 0;
+    const typingInterval = setInterval(() => {
+      if (i <= fullText.length) {
+        setTypedText(fullText.substring(0, i));
+        i++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 20); // Typing speed (lower = faster)
+
     // Animate categories one by one
     const categoryTimer = setTimeout(() => {
       setVisibleCategories([0]);
@@ -53,7 +66,10 @@ const Skills = () => {
       return () => clearTimeout(frameworksTimer);
     }, 500);
     
-    return () => clearTimeout(categoryTimer);
+    return () => {
+      clearInterval(typingInterval);
+      clearTimeout(categoryTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -74,17 +90,16 @@ const Skills = () => {
 
   return (
     <section className="container px-4 py-10 flex flex-col items-center max-w-2xl mx-auto">
-    <div className="relative mb-5">
+      <div className="relative mb-5">
         <h2 className="text-3xl font-bold text-tech">My Skills</h2>
         <div className="absolute bottom-0 left-0 right-0 h-1 overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-full bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-90 animate-moveDots"></div>
+          <div className="absolute top-0 left-0 right-0 h-full bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-90 animate-moveDots"></div>
         </div>
       </div>
       
-      <p className="text-center mb-10 max-w-2xl text-gray-600 dark:text-gray-300">
-        With a diverse skill set spanning multiple programming languages, frameworks, and databases, 
-        I bring comprehensive technical expertise to every project. Below you'll find a breakdown of 
-        my proficiency levels across different technologies.
+      <p className="text-center mb-10 max-w-2xl text-gray-600 dark:text-gray-300 min-h-[120px]">
+        {typedText}
+        <span className={`inline-block ml-1 h-5 w-0.5 bg-yellow-500 ${typedText.length === fullText.length ? 'opacity-0' : 'animate-pulse'}`}></span>
       </p>
 
       {skillsData.map((category, categoryIndex) => (
@@ -115,6 +130,31 @@ const Skills = () => {
           </div>
         </div>
       ))}
+
+      <style jsx>{`
+        @keyframes moveDots {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+        .animate-moveDots {
+          animation: moveDots 3s linear infinite;
+        }
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+        }
+        .animate-pulse {
+          animation: pulse 1s infinite;
+        }
+      `}</style>
     </section>
   );
 };
