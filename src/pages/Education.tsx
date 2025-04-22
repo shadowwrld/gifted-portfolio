@@ -62,12 +62,24 @@ const Education = () => {
 
   return (
     <section className="container px-4 py-10 flex flex-col items-center">
-      <div className="relative mb-12 w-full max-w-3xl text-center">
+      <div className="relative mb-5 w-full max-w-3xl text-center">
         <h2 className="text-4xl font-bold text-tech mb-2">My Education</h2>
         <div className="absolute bottom-0 left-0 right-0 h-1 overflow-hidden">
           <div className="absolute top-0 left-0 right-0 h-full bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-90 animate-moveDots"></div>
         </div>
       </div>
+
+      {/* Added welcome paragraph with animation */}
+      <motion.p 
+        className="mb-12 text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto text-lg leading-relaxed"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.5 }}
+      >
+        My educational journey reflects my passion for continuous learning and growth. 
+        From formal education to self-directed tech learning, each step has shaped my 
+        skills and perspective. Here's a timeline of my academic path.
+      </motion.p>
 
       <div className="max-w-2xl mx-auto flex flex-col gap-8 w-full">
         {educationData.map((item, idx) => (
