@@ -7,22 +7,30 @@ const Projects = () => {
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [typedText, setTypedText] = useState("");
+  const [hasTyped, setHasTyped] = useState(false); // New state to track if typing has completed
   const fullText = "Here are some of my featured projects showcasing my skills and experience from the most recent works. Each project represents unique challenges and creative solutions I've developed.";
 
   useEffect(() => {
     setFadeIn(true);
     
-    // Typewriter effect
-    let i = 0;
-    const typingInterval = setInterval(() => {
-      if (i <= fullText.length) {
-        setTypedText(fullText.substring(0, i));
-        i++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 30); // Typing speed (lower = faster)
+    // Only run typewriter effect if it hasn't completed yet
+    if (!hasTyped) {
+      let i = 0;
+      const typingInterval = setInterval(() => {
+        if (i <= fullText.length) {
+          setTypedText(fullText.substring(0, i));
+          i++;
+        } else {
+          setHasTyped(true); // Mark typing as complete
+          clearInterval(typingInterval);
+        }
+      }, 30);
 
+      return () => clearInterval(typingInterval);
+    }
+  }, [hasTyped]); // Only run when hasTyped changes
+
+  useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
       if (currentScrollPos > prevScrollPos) {
@@ -34,10 +42,7 @@ const Projects = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      clearInterval(typingInterval);
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos]);
 
   return (
