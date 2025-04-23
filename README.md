@@ -2,7 +2,7 @@
 
 - For better experience please view in dark theme
 
-- **[VIEW DEMO](https://portfolio.giftedtech.web.id)**
+- **[VIEW LIVE](https://portfolio.giftedtech.web.id)**
 
 - You can check out my old portfolio repo **[HERE](https://github.com/mauricegift/gifted-portfolio-old)**
 
