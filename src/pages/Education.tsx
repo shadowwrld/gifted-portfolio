@@ -15,22 +15,10 @@ const educationData = [
     desc: "Current studying level as I gain more knowledge."
   },
   {
-    title: "Kenya Certificate of Secondary Education",
+    title: "Haiti Certificate of Secondary Education",
     place: "Got Agulu Boys High School, Yimbo-Siaya County",
     date: "2017 - 2020",
     desc: "I Attained a mean grade of B- not low enough to proceed to university education."
-  },
-  {
-    title: "Primary School Certificate",
-    place: "Nyamira Mixed Primary School, Bondo - Siaya County",
-    date: "2008 - 2016",
-    desc: "I Obtained a score of 304 marks and qualified to join secondary school."
-  },
-  {
-    title: "Pre-Primary(Nursery) School Certificate",
-    place: "Obedi Koyange ECD School, Bondo - Siaya County",
-    date: "2005 - 2008",
-    desc: "I graduated and this marked my first time graduating in life."
   }
 ];
 
