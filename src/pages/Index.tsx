@@ -178,7 +178,7 @@ const Index = () => {
           <img
             ref={imageRef}
             src="https://xtknaolipemhxqikaytx.supabase.co/storage/v1/object/public/avatars/profile_pictures/-1745174332976.png?auto=format&fit=facearea&w=400&h=400"
-            alt="Gifted Tech"
+            alt="SHADOW WRLD"
             className="rounded-full object-cover w-48 h-48 border-4 border-tech shadow-lg glass cursor-pointer mb-6 hover:shadow-xl transition-all duration-300 animate-glow"
             onClick={() => handleImageClick(false)}
             style={{
@@ -214,7 +214,7 @@ const Index = () => {
             <img
               ref={mobileImageRef}
               src="https://xtknaolipemhxqikaytx.supabase.co/storage/v1/object/public/avatars/profile_pictures/-1745174332976.png?auto=format&fit=facearea&w=400&h=400"
-              alt="Gifted Tech"
+              alt="SHADOW WRLD"
               className="rounded-full object-cover w-48 h-48 border-4 border-tech shadow-lg glass cursor-pointer mb-6 hover:shadow-xl transition-all duration-300 animate-glow"
               onClick={() => handleImageClick(true)}
               style={{
@@ -248,7 +248,7 @@ const Index = () => {
               {/* Paragraphs */}
            <div className="text-center lg:text-left text-gray-700 dark:text-gray-300 max-w-md lg:max-w-2xl">
            <p>
-             I'm a self-learned developer from Kenya. I'm still a student, currently in third year school of Business and economics taking Bachelor of Business Management at Moi University - Eldoret.
+             I'm a self-learned developer from Haiti. I'm still a student, currently in third year school of Business and economics taking Bachelor of Business Management at Moi University - Eldoret.
            </p>
             <p>
              I have a passion for web development, app and software development, backend development and I love to learn new things. I'm also a tech enthusiast and I love to share my knowledge as well as collaborate with others.
@@ -260,11 +260,11 @@ const Index = () => {
                 className="floating-card"
               >
                 <p className="text-center lg:text-left">
-                  <span className="text-tech font-bold">Gifted Tech</span> {' '}
-                  <span className="text-highlight">crafts</span> {' '}
-                  digital <span className="text-purple-500">experiences</span> {' '}
-                  that <span className="text-green-500">inspire</span> {' '}
-                  and <span className="text-yellow-500">transform</span>.
+                  <span className="text-tech font-bold">SHADOW WRLD</span> {' '}
+                  <span className="text-highlight">Crafts</span> {' '}
+                  digital <span className="text-purple-500">Experiences</span> {' '}
+                  that <span className="text-green-500">Inspire</span> {' '}
+                  and <span className="text-yellow-500">Transform</span>.
                 </p>
               </div>
 
@@ -280,10 +280,10 @@ const Index = () => {
               >
                 <p className="text-center lg:text-left">
                   <span className="text-tech font-bold">I try to blend</span> {' '}
-                  <span className="text-highlight">technology</span> {' '}
-                  with <span className="text-purple-500">passion</span> {' '}
-                  to create <span className="text-green-500">solutions</span> {' '}
-                  that <span className="text-yellow-500">shine</span>.
+                  <span className="text-highlight">Technology</span> {' '}
+                  with <span className="text-purple-500">Passion</span> {' '}
+                  to create <span className="text-green-500">Polutions</span> {' '}
+                  that <span className="text-yellow-500">Shine</span>.
                 </p>
               </div>
             </div>
