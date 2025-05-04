@@ -7,25 +7,25 @@ const skillsData = [
   { 
     category: "Programming Languages",
     skills: [
-      { name: "JavaScript", icon: <SiJavascript className="text-yellow-400 text-xm" />, percent: 94 },
-      { name: "Python", icon: <SiPython className="text-blue-400 text-xm" />, percent: 52 },
-      { name: "TypeScript", icon: <SiTypescript className="text-blue-500 text-xm" />, percent: 62 },
-      { name: "HTML/CSS", icon: <div className="flex gap-1"><SiHtml5 className="text-orange-500 text-xm" /><SiCss3 className="text-blue-500 text-xm" /></div>, percent: 89 },
+      { name: "JavaScript", icon: <SiJavascript className="text-yellow-400 text-xm" />, percent: 84 },
+      { name: "Python", icon: <SiPython className="text-blue-400 text-xm" />, percent: 42 },
+      { name: "TypeScript", icon: <SiTypescript className="text-blue-500 text-xm" />, percent: 52 },
+      { name: "HTML/CSS", icon: <div className="flex gap-1"><SiHtml5 className="text-orange-500 text-xm" /><SiCss3 className="text-blue-500 text-xm" /></div>, percent: 79 },
     ]
   },
   {
     category: "Frameworks & Libraries",
     skills: [
-      { name: "React", icon: <FaReact className="text-blue-500 text-xm" />, percent: 72 },
-      { name: "Node.js", icon: <FaNodeJs className="text-green-500 text-xm" />, percent: 97 },
-      { name: "Express", icon: <SiExpress className="text-gray-500 text-xm" />, percent: 95 },
+      { name: "React", icon: <FaReact className="text-blue-500 text-xm" />, percent: 62 },
+      { name: "Node.js", icon: <FaNodeJs className="text-green-500 text-xm" />, percent: 87 },
+      { name: "Express", icon: <SiExpress className="text-gray-500 text-xm" />, percent: 85 },
       { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white text-xm" />, percent: 24 },
     ]
   },
   {
     category: "Database Technologies",
     skills: [
-      { name: "MongoDB", icon: <SiMongodb className="text-yellow-400 text-xm" /> , percent: 80 },
+      { name: "MongoDB", icon: <SiMongodb className="text-yellow-400 text-xm" /> , percent: 70 },
       { name: "PostgreSQL", icon: <SiPostgresql className="text-yellow-400 text-xm" /> , percent: 53 },
     ]
   }
